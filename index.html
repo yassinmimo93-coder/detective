@@ -1792,7 +1792,7 @@ function sendLobbyState(conn){
     if(!conn || !conn.open) return;
 
     conn.send({
-        type:"LOBBY_STATE",
+        type:"LOBBY",
         roomCode:roomCode,
         players:players,
         scores:scores,
