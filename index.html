@@ -1364,9 +1364,25 @@ function createPeer(peerId){
 
     return new Promise((resolve,reject)=>{
 
-        const p =
-            new Peer(peerId,{
-
+      const p = peerId
+    ? new Peer(peerId,{
+        debug:0,
+        config:{
+            iceServers:[
+                { urls:"stun:stun.l.google.com:19302" },
+                { urls:"stun:global.stun.twilio.com:3478" }
+            ]
+        }
+    })
+    : new Peer({
+        debug:0,
+        config:{
+            iceServers:[
+                { urls:"stun:stun.l.google.com:19302" },
+                { urls:"stun:global.stun.twilio.com:3478" }
+            ]
+        }
+    });
                 debug:0,
 
                 config:{
